@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+app/.venv/
+
+# IDE settings
+.idea/
+
+# Database files
+*.db
+
+# Environment files
+*.env
