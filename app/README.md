@@ -90,11 +90,6 @@ App runs at 👉 `http://127.0.0.1:8000`
 
 ---
 
-## 📸 Screenshots
-*(Add screenshots here of your UI — e.g., medicine table, search, sales page)*  
-
----
-
 ## 👨‍💻 Author
 - **Ali Ali**  
   💼 AI & Software Developer | 🚑 Hospitalist | Future MBA Candidate  
