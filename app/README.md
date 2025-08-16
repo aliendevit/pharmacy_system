@@ -92,6 +92,6 @@ App runs at 👉 `http://127.0.0.1:8000`
 
 ## 👨‍💻 Author
 - **Ali Ali**  
-  💼 AI & Software Developer | 🚑 Hospitalist | Future MBA Candidate  
+  💼 AI & Software Developer  
   📧 ali.iteng@outlook.com  
   🌍 Damascus, Syria  
