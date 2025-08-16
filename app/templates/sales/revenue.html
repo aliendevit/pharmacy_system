@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h2>Revenue</h2>
+  </div>
+  <div class="grid-cols-2">
+    <div>
+      <h3 class="muted">Daily</h3>
+      <ul class="list">
+        {% for d, r in daily %}
+          <li><span class="mono">{{ d }}</span><span>{{ '%.2f'|format(r) }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h3 class="muted">Monthly</h3>
+      <ul class="list">
+        {% for m, r in monthly %}
+          <li><span class="mono">{{ m }}</span><span>{{ '%.2f'|format(r) }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

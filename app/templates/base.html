@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or 'Pharmacy' }}</title>
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="shell">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">💊</div>
+        <a class="brand-title" href="/">Pharmacy</a>
+      </div>
+      <nav class="nav">
+        <a class="nav-link {{ 'is-active' if request.url.path == '/' else '' }}" href="/">Home</a>
+        <a class="nav-link {{ 'is-active' if request.url.path.startswith('/medicines') else '' }}" href="/medicines/">Medicines</a>
+        <a class="nav-link {{ 'is-active' if request.url.path.startswith('/sales') and request.url.path != '/sales/revenue' else '' }}" href="/sales/">Sales</a>
+        <a class="nav-link {{ 'is-active' if request.url.path == '/sales/revenue' else '' }}" href="/sales/revenue">Revenue</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    {% block flash %}{% endblock %}
+    <section class="page">{% block content %}{% endblock %}</section>
+  </main>
+
+  <footer class="shell footer">
+    <div>© Pharmacy System · <span class="muted">FastAPI + SQLModel</span></div>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

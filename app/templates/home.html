@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h1>Pharmacy Management</h1>
+    <p class="muted">Manage inventory, sales, and revenue with a clean, fast UI.</p>
+  </div>
+  <div class="card-body grid-cols-2">
+    <a class="quick" href="/medicines/">
+      <h3>Medicines</h3>
+      <p>Search, add, edit, and track stock & expiry.</p>
+    </a>
+    <a class="quick" href="/sales/">
+      <h3>Sales</h3>
+      <p>Record transactions and keep the log organized.</p>
+    </a>
+  </div>
+</div>
+{% endblock %}

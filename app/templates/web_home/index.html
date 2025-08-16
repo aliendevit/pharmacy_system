@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% set subtitle = "Welcome" %}
+{% block content %}
+<div class="grid hero">
+  <div class="card highlight">
+    <h2>Quick Actions</h2>
+    <div class="cta-row">
+      <a class="btn primary" href="/medicines/new">➕ Add Medicine</a>
+      <a class="btn" href="/medicines/">🧾 View Inventory</a>
+      <a class="btn" href="/sales/new">💸 New Sale</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Tips</h3>
+    <ul class="list">
+      <li>Use the toolbar on the Medicines page to search, filter by manufacturer, and flag low stock.</li>
+      <li>Toggle 🌙 in the header for dark mode.</li>
+      <li>Delete actions show a confirmation modal, not a plain browser prompt.</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

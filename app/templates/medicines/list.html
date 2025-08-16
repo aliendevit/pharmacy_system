@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <div class="card-header row">
+    <h2>Medicines</h2>
+    <a class="btn primary" href="/medicines/new">+ Add Medicine</a>
+  </div>
+
+  <form method="get" class="toolbar">
+    <input class="input" type="text" name="q" placeholder="Search by name" value="{{ request.query_params.get('q','') }}">
+    <input class="input" type="text" name="manufacturer" placeholder="Manufacturer" value="{{ request.query_params.get('manufacturer','') }}">
+    <input class="input" type="number" name="low" placeholder="Low stock <" value="{{ request.query_params.get('low','') }}">
+    <label class="chk"><input type="checkbox" name="expired" {% if request.query_params.get('expired') %}checked{% endif %}> Expired only</label>
+    <button class="btn" type="submit">Filter</button>
+    <a class="btn ghost" href="/medicines/">Reset</a>
+  </form>
+
+  {% if medicines|length == 0 %}
+    <div class="empty">
+      <p>No medicines found.</p>
+      <a class="btn primary" href="/medicines/new">Add your first medicine</a>
+    </div>
+  {% else %}
+  <div class="table-wrap">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Manufacturer</th>
+          <th>Expiry</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in medicines %}
+        <tr>
+          <td><strong>{{ m.name }}</strong></td>
+          <td>{{ m.manufacturer or '-' }}</td>
+          <td>
+            {% if m.expiry_date %}
+              <span class="badge {{ 'danger' if m.expiry_date < today else 'muted' }}">{{ m.expiry_date }}</span>
+            {% else %}-{% endif %}
+          </td>
+          <td>{{ '%.2f'|format(m.price) }}</td>
+          <td><span class="badge {{ 'warn' if m.quantity < 10 else '' }}">{{ m.quantity }}</span></td>
+          <td class="right">
+            <a class="btn small" href="/medicines/{{m.id}}/edit">Edit</a>
+            <form class="inline" action="/medicines/{{m.id}}/delete" method="post">
+              <button class="btn small danger" data-confirm>Delete</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
