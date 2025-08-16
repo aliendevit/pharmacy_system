@@ -1,16 +1,16 @@
-# Python cache
+# Python
 __pycache__/
 *.pyc
+*.pyo
 
-# Virtual environments
+# Virtual env
 .venv/
-app/.venv/
 
-# IDE settings
+# IDE files
 .idea/
 
-# Database files
+# Database
 *.db
 
-# Environment files
-*.env
+# Env files
+.env
